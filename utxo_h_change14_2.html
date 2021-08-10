@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style type="text/css">
+	body{
+		margin:0;
+		padding: 0;
+		overflow-y:scroll;
+
+	}
+
+	.container{
+		width:98%;
+		margin: 1%;
+	}
+	.col-lg-12{
+	    border-bottom: 0.0px solid;
+	}
+    .back2{
+        padding-bottom: 3px;
+        padding-top: 0px;
+	    border-bottom: 0.5px solid;
+	    font-size: 13px;
+	}    
+	.col12marg0{
+	    margin: 0px;
+	}
+    .col-lg-9{
+	    border: 0.5px solid;
+	}
+    .col-lg-3{
+	    border: 0.5px solid;
+	}
+	.col-lg-10{
+	    border: 0.5px solid;
+	}
+	.back{
+		background-color: #F3F3F3;
+		border-bottom: 0.5px solid;
+	}
+    .back1{
+		background-color: #F3F3F3;
+	}
+    .col-lg-2{
+	    border: 0.5px solid;    
+	}
+    .colt{
+	    border: 0.0px solid;
+	}
+	.row{
+	    border: 0.0px solid;
+	}
+	ul.ul {
+        margin: 0px;
+        padding: 0px;
+        font-size: 14px;
+    }
+    li {
+        margin: 0px;
+        padding-bottom: 2px;
+        padding-left: 0px;
+        font-size: 14px;
+    }
+    .findclass{
+        margin: 1px;
+        left-padding: 4px;
+        font-size: 14px;
+    }
+    .descclass{
+        margin: 5px;
+        font-size: 14px;
+    }
+    .addrclass{
+        margin: 38px;
+        top-padding: 50px;
+        font-size: 14px;
+    }
+    .font14{
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .MathJax {
+    font-size: 12px;
+    }
+</style>
+    <title>Tsypruyan</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script src="plotly-latest.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    
+</script>
+    
+    <script>
+    $( document ).ready(function() {
+        console.log( "document loaded" );
+        var value = "";
+        if (localStorage.hasOwnProperty("text")) {
+            value = localStorage.getItem("text");
+        }      
+        $('#myInput').val(value);
+        $("#myList li").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+ 
+    $( window ).on( "load", function() {
+        console.log( "window loaded" );
+    });
+    </script>
+    
+    
+</head>
+<body>
+  
+    <script>
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            localStorage.setItem("text",value);
+            $("#myList li").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+    </script>
+  
+<div class="container-fluid">
+    <div class="row back1">
+        <div class="col-lg-3 colt">
+            <div class="px-1 py-1 font14">
+                <a href="index.html" class="text-dark">Tsypruyan</a> 
+            </div>
+        </div>
+        <div class="col-lg-9 colt">
+            <div class="py-1 float-right font14">Bitcoin on-chain data</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="col-lg-12">
+            <div class="py-1"><input class="form-control" id="myInput" type="text" placeholder="Find"></div>
+            <div class="row"><div class="col-lg-12">
+            <div class="font14">Sentiment</div>
+            <div class="col12marg0">
+            <ul id="myList" class="ul">
+                <li>
+                    <a href="sinpl.html" class="text-dark">Parametric long-term supply</a>
+                </li>
+                <li>
+                    <a href="sinpl_p.html" class="text-dark">Long-term supply in profit</a>
+                </li>
+                <li>
+                    <a href="sinpl_l.html" class="text-dark">Long-term supply in loss</a>
+                </li> 
+                <li>
+                    <a href="sinpl_pt.html" class="text-dark">Circulating supply in profit</a>
+                </li>
+                <li>
+                    <a href="sinpl_ptr.html" class="text-dark">Ratio of circ. supply in profit</a>
+                </li>
+                <li>
+                    <a href="sinpl_ltr.html" class="text-dark">Ratio of circ. supply in loss</a>
+                </li>
+                <li>
+                    <a href="utxo_cnt.html" class="text-dark">UTXO powerset</a>
+                </li>         
+                <li>
+                    <a href="waves1.html" class="text-dark">HODL waves</a>
+                </li>
+                <li>
+                    <a href="waves2.html" class="text-dark">Realised cap HODL waves</a>
+                </li>               
+                <li>
+                    <a href="cap.html" class="text-dark">Realised and delta caps</a>
+                </li>               
+                <li>
+                    <a href="spentpar_liveliness.html" class="text-dark">Liveliness</a>
+                </li>
+                <li>
+                    <a href="spentpar_hodledorlost.html" class="text-dark">Hodled or lost coins</a>
+                </li>
+                <li>
+                    <a href="spentpar_hodledorlost_change.html" class="text-dark">Hodler net position change</a>
+                </li>
+                <li>
+                    <a href="spentpar_sopr.html" class="text-dark">SOPR</a>
+                </li>
+                <li>
+                    <a href="spentpar_sopr_lfamily.html" class="text-dark">Long-term SOPR family</a>
+                </li>
+                 <li>
+                    <a href="spentpar_sopr_sfamily.html" class="text-dark">Short-term SOPR family</a>
+                </li>
+                 <li>
+                    <a href="mvrv_sfamily.html" class="text-dark">Short-term MVRV family</a>
+                </li>
+                 <li>
+                    <a href="spent_outputs.html" class="text-dark">Spent tx outputs</a>
+                </li>
+            </ul>
+            </div>
+            </div></div>
+            <div class="row"><div class="col-lg-12">
+            <div class="font14">Addresses</div>
+            <ul id="myList" class="ul">            
+                <li>
+                    <a href="addr_lc.html" class="text-dark">Linear composition of realised cap</a>
+                </li>  
+                <li>
+                    <a href="addr_lcw.html" class="text-dark">Realised cap composition weights</a>
+                </li>  
+                <li>
+                    <a href="addr_lcb.html" class="text-dark">Supply distribution in A addr.</a>
+                </li>  
+                <li>
+                    <a href="addr_v.html" class="text-dark">Supply distribution in addr.</a>
+                </li> 
+                <li>
+                    <a href="addr_c.html" class="text-dark">Specific addresses count</a>
+                </li>   
+                <li>
+                    <a href="addr_inp.html" class="text-dark">Ratio of addresses in profit</a>
+                </li> 
+                <li>
+                    <a href="addr_inl.html" class="text-dark">Addresses in loss</a>
+                </li> 
+                <li>
+                    <a href="addr_act.html" class="text-dark">Active addresses</a>
+                </li> 
+            </ul> 
+            </div></div>
+            <div class="row"><div class="col-lg-12">
+            <div class="font14">UTXO histograms</div>
+            <ul id="myList" class="ul"> 
+                <li>
+                    <a href="utxo_h.html" class="text-dark">UTXO price hist.</a>
+                </li>    
+                <li>
+                    <a href="utxo_h_change.html" class="text-dark">UTXO price hist. change</a>
+                </li>  
+            </ul>
+            </div></div>            
+            <div class="row"><div class="col-lg-12">
+            <div class="font14">Miners</div>
+            <ul id="myList" class="ul"> 
+                <li>
+                    <a href="miners_cb_s.html" class="text-dark">Miners unspent supply</a>
+                </li>
+                <li>
+                    <a href="miners_cb_sprofile.html" class="text-dark">Miners unspent supply histogram</a>
+                </li>
+                <li>
+                    <a href="miners_cb_c.html" class="text-dark">Miners unspent tx outputs count</a>
+                </li>  
+            </ul>
+            </div></div>
+            <div class="row"><div class="col-lg-12">
+            <div class="font14">Scripts</div>
+            <ul id="myList" class="ul"> 
+                <li>
+                    <a href="op_return.html" class="text-dark">OP_RETURN script count</a>
+                </li>
+                <li>
+                    <a href="op_return_value.html" class="text-dark">OP_RETURN script value</a>
+                </li>
+                <li>
+                    <a href="utxotype_cnt.html" class="text-dark">UTXO script types count</a>
+                </li>  
+                <li>
+                    <a href="utxotype_supply.html" class="text-dark">UTXO script types value</a>
+                </li> 
+            </ul>
+            </div></div>
+            </div>
+        </div>                                                                               
+        <div class="col-lg-10">
+        
+<div class="row"><div class="col-lg-12 back"><div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="plotly.min.js"></script>                <div id="5e66952c-dd9e-4701-9564-bc12b59ec57a" class="plotly-graph-div" style="height:729px; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("5e66952c-dd9e-4701-9564-bc12b59ec57a")) {                    Plotly.newPlot(                        "5e66952c-dd9e-4701-9564-bc12b59ec57a",                        [{"legendgroup": "g1", "marker": {"color": "rgb(204, 102, 119)", "line": {"color": "black", "width": 1.0}}, "name": "heights=695078, 692991; August 10", "opacity": 0.59, "showlegend": true, "type": "bar", "width": 310, "x": [250, 750, 1250, 1750, 2250, 2750, 3250, 3750, 4250, 4750, 5250, 5750, 6250, 6750, 7250, 7750, 8250, 8750, 9250, 9750, 10250, 10750, 11250, 11750, 12250, 12750, 13250, 13750, 14250, 14750, 15250, 15750, 16250, 16750, 17250, 17750, 18250, 18750, 19250, 19750, 20250, 20750, 21250, 21750, 22250, 22750, 23250, 23750, 24250, 24750, 25250, 25750, 26250, 26750, 27250, 27750, 28250, 28750, 29250, 29750, 30250, 30750, 31250, 31750, 32250, 32750, 33250, 33750, 34250, 34750, 35250, 35750, 36250, 36750, 37250, 37750, 38250, 38750, 39250, 39750, 40250, 40750, 41250, 41750, 42250, 42750, 43250, 43750, 44250, 44750, 45250, 45750, 46250, 46750, 47250, 47750, 48250, 48750, 49250, 49750, 50250, 50750, 51250, 51750, 52250, 52750, 53250, 53750, 54250, 54750, 55250, 55750, 56250, 56750, 57250, 57750, 58250, 58750, 59250, 59750, 60250, 60750, 61250, 61750, 62250, 62750, 63250, 63750, 64250, 64750], "y": [3576897.83068263, 875586.24810814, 131815.14153811, 34513.58471764, 53151.97041765, 196609.20879147, 84196.23292876, 1007842.6121134, 197740.46222529, 87991.67828007, 179658.43604046, 153511.18375377, 239574.03214233, 293107.03406925, 320929.48411531, 286252.86685239, 263485.02803126, 301358.28947178, 405747.17399805, 315428.35818333, 218027.24744032, 411555.99045686, 246583.88984824, 273186.39413648, 44226.18530696, 59539.03909984, 82967.7963587, 171727.61591246, 44855.99485474, 41882.92922954, 60677.80591267, 46072.92057737, 93214.4737032, 71671.91689479, 34044.42391679, 52042.8524554, 86457.82919655, 70484.66377572, 209327.96465192, 9623.90187482, 112.57729148, 4602.63779015, 2207.19255693, 2262.81818495, 5525.3911142, 77276.44958737, 123230.78693617, 76439.79753231, 3462.46910732, 4166.22011089, 784.32206921, 2893.50402291, 5517.918452, 57944.51401552, 109151.14266027, 18136.44058641, 7514.50729191, 22599.64762927, 26892.86440676, 55120.31078453, 8258.29555008, 60568.12099554, 75999.58447477, 328432.97391236, 141936.68528772, 243465.74402698, 167922.36595036, 184825.16390601, 153131.50326859, 177491.25101795, 73906.02427028, 102491.93819809, 119010.38138115, 161059.49754993, 136371.04947071, 158678.62543973, 277643.88005921, 152704.51306655, 177262.41443792, 84729.97393236, 152165.64358879, 56646.76125579, 37324.62106557, 7302.76637853, 281.32605783, 14679.21634859, 18934.86902213, 6018.23584423, 7063.75955435, 62556.27626165, 13774.58651602, 34838.04373395, 28624.6203507, 63550.55127313, 116609.76242498, 77190.40693682, 92964.26085902, 68043.88368428, 49766.58238658, 66156.6651911, 121696.83231684, 73655.41473371, 24201.06167605, 71993.16644194, 26282.31639149, 33243.37885153, 31589.0174807, 100502.53539634, 122478.98085831, 124254.13248823, 94734.42296552, 117534.35201253, 215816.81390787, 101939.89075605, 94432.75503692, 180371.97287557, 101350.93526638, 128366.8421803, 71998.51726276, 41725.4809719, 43545.80413566, 56016.39250633, 10871.85099765, 5163.92033123, 37138.51600761, 21242.67065483, 34242.61916453, 14587.75896274, 6136.68075695, 1383.61421828]}, {"legendgroup": "gout", "marker": {"color": "rgb(152,78,163)", "line": {"color": "black", "width": 1.0}}, "name": "", "opacity": 1.0, "showlegend": true, "type": "bar", "width": 310, "x": [250, 750, 1250, 1750, 2250, 2750, 3250, 3750, 4250, 4750, 5250, 5750, 6250, 6750, 7250, 7750, 8250, 8750, 9250, 9750, 10250, 10750, 11250, 11750, 12250, 12750, 13250, 13750, 14250, 14750, 15250, 15750, 16250, 16750, 17250, 17750, 18250, 18750, 19250, 19750, 20250, 20750, 21250, 21750, 22250, 22750, 23250, 23750, 24250, 24750, 25250, 25750, 26250, 26750, 27250, 27750, 28250, 28750, 29250, 29750, 30250, 30750, 31250, 31750, 32250, 32750, 33250, 33750, 34250, 34750, 35250, 35750, 36250, 36750, 37250, 37750, 38250, 39250, 46750, 47250, 47750, 48250, 48750, 49250, 49750, 50250, 50750, 51250, 51750, 52250, 52750, 53250, 53750, 54250, 54750, 55250, 55750, 56250, 56750, 57250, 57750, 58250, 58750, 59250, 59750, 60250, 60750, 61250, 61750, 62250, 62750, 63250, 63750, 64250, 64750], "y": [1777.6930012200028, 604.0174792300677, 1016.4881616600032, 70.6642417500043, 76.50527014999534, 47425.50764982999, 2801.0062659599935, 28121.291357659968, 11111.989543640026, 6056.878329489991, 1115.4272158300155, 3628.3149651300046, 1297.1256787099992, 2800.183658019989, 1908.719003300008, 3974.1892372100265, 1588.763797010004, 4159.491178939992, 3516.307489310042, 2716.7659131700057, 28530.124662579998, 6936.245403809997, 10398.103445869987, 6546.515968560008, 233.4631021600071, 563.7682778599992, 742.2194544500089, 1031.632370359992, 127.85469074999855, 258.61224842999945, 535.1479128999999, 325.9035187699992, 310.45571776000725, 295.37265377999574, 167.10678049999842, 2391.214825859999, 1242.281103870002, 719.6034729500097, 2056.733268459997, 47.43561358000079, 0.683635339999995, 20.859517380000398, 33.09730624999975, 32.07690965999973, 62.81565559000046, 2236.6401396199944, 1247.6237587299984, 849.11648668001, 25.652721850000034, 39.609183620000294, 2.4702356000000236, 24.153221219999978, 82.49422502000016, 457.4747664300012, 199.8915312600002, 129.04266852, 38.61836901999959, 1866.3344168900003, 1150.7550366700016, 14062.88672825, 613.7752793800009, 21304.859545280007, 16422.114176479998, 39212.54817339004, 28105.13481881999, 29335.918653219996, 17974.64226349001, 44988.171378889994, 37875.77128265001, 33540.13335714, 11862.458782059999, 6201.0557329999865, 8137.009993569998, 36042.61856358999, 42361.05433402001, 51498.30060694, 31718.309210759995, 10591.50791449999, 7717.284017869999, 966.2952058399969, 1525.42748862, 621.2279619100009, 840.0838229400106, 2212.5562015800024, 1840.2382239200087, 2700.337582570006, 1046.8522948000027, 808.708956049999, 1213.1106426999904, 1475.0411860400018, 577.4883014300067, 769.010937160001, 1097.6757880799996, 1924.5819337700086, 2338.981466240002, 2138.308286829997, 2033.6569623399992, 12875.739747099986, 3923.9701876000036, 4309.417316559993, 4052.0336110299977, 4307.037417359999, 1819.950608530009, 2038.8351137499994, 1140.7484774600016, 696.0868544300029, 862.5898091700001, 332.3377362399988, 739.8280420200008, 2580.523414360003, 6186.465090870002, 415.7557459200034, 258.1052276700011, 217.83089718000065, 23.189045970000052]}, {"legendgroup": "gin", "marker": {"color": "rgb(247,129,191)", "line": {"color": "black", "width": 1.0}}, "name": "", "opacity": 1.0, "showlegend": true, "type": "bar", "width": 310, "x": [38750, 39750, 40250, 40750, 41250, 41750, 42250, 42750, 43250, 43750, 44250, 44750, 45250, 45750, 46250], "y": [1993.1697051000083, 259144.05309448997, 24053.25932807001, 52608.71567412, 12566.640694480004, 28855.08161387, 14705.49382075, 21550.274871789996, 27243.693666029998, 58494.28034878, 25407.41686439, 10201.455586709999, 7752.374384190001, 205850.65592587, 22819.300471]}, {"line": {"color": "rgb(247,129,191)", "width": 1.2}, "mode": "lines", "name": "cdf", "opacity": 0.8, "showlegend": true, "type": "scatter", "x": [0, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000, 10500, 11000, 11500, 12000, 12500, 13000, 13500, 14000, 14500, 15000, 15500, 16000, 16500, 17000, 17500, 18000, 18500, 19000, 19500, 20000, 20500, 21000, 21500, 22000, 22500, 23000, 23500, 24000, 24500, 25000, 25500, 26000, 26500, 27000, 27500, 28000, 28500, 29000, 29500, 30000, 30500, 31000, 31500, 32000, 32500, 33000, 33500, 34000, 34500, 35000, 35500, 36000, 36500, 37000, 37500, 38000, 38500, 39000, 39500, 40000, 40500, 41000, 41500, 42000, 42500, 43000, 43500, 44000, 44500, 45000, 45500, 46000, 46500, 47000, 47500, 48000, 48500, 49000, 49500, 50000, 50500, 51000, 51500, 52000, 52500, 53000, 53500, 54000, 54500, 55000, 55500, 56000, 56500, 57000, 57500, 58000, 58500, 59000, 59500, 60000, 60500, 61000, 61500, 62000, 62500, 63000, 63500, 64000, 64500, 65000], "xaxis": "x", "y": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0025776661636520842, 0.0025776661636520842, 0.33771564034824836, 0.36882251124683246, 0.43685871807828636, 0.453110522641666, 0.490427348868342, 0.5094452246390557, 0.537315111589614, 0.5725480108034341, 0.6481957225042618, 0.6810538572579481, 0.6942468868422216, 0.704272642846318, 0.9704889460481964, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "yaxis": "y2"}, {"line": {"color": "rgb(152,78,163)", "width": 1.2}, "mode": "lines", "name": "cdf", "opacity": 0.8, "showlegend": true, "type": "scatter", "x": [0, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000, 10500, 11000, 11500, 12000, 12500, 13000, 13500, 14000, 14500, 15000, 15500, 16000, 16500, 17000, 17500, 18000, 18500, 19000, 19500, 20000, 20500, 21000, 21500, 22000, 22500, 23000, 23500, 24000, 24500, 25000, 25500, 26000, 26500, 27000, 27500, 28000, 28500, 29000, 29500, 30000, 30500, 31000, 31500, 32000, 32500, 33000, 33500, 34000, 34500, 35000, 35500, 36000, 36500, 37000, 37500, 38000, 38500, 39000, 39500, 40000, 40500, 41000, 41500, 42000, 42500, 43000, 43500, 44000, 44500, 45000, 45500, 46000, 46500, 47000, 47500, 48000, 48500, 49000, 49500, 50000, 50500, 51000, 51500, 52000, 52500, 53000, 53500, 54000, 54500, 55000, 55500, 56000, 56500, 57000, 57500, 58000, 58500, 59000, 59500, 60000, 60500, 61000, 61500, 62000, 62500, 63000, 63500, 64000, 64500, 65000], "xaxis": "x", "y": [0.0, 0.0023384478463496982, 0.0031329963834108073, 0.004470125207590515, 0.004563079752509591, 0.004663717817740135, 0.06704911065535368, 0.07073366533704, 0.10772552679273686, 0.12234267834767489, 0.13031013621327805, 0.13177741339152393, 0.13655024273284652, 0.13825653327218185, 0.14194000586277347, 0.1444508105064833, 0.1496786165766889, 0.15176853945815758, 0.15724009904838349, 0.16186558931573408, 0.16543933089784568, 0.2029689878900892, 0.21209320006573532, 0.2257712775472964, 0.2343828241738888, 0.23468993079357706, 0.23543153393556912, 0.23640787882953357, 0.2377649289461945, 0.2379331140749118, 0.23827330287858361, 0.2389772576579188, 0.2394059640662033, 0.23981434982464675, 0.24020289472279754, 0.2404227136064307, 0.2435682123825716, 0.2452023581939755, 0.2461489531293163, 0.24885446160510227, 0.24891686029168103, 0.24891775957270842, 0.24894519900879764, 0.2489887365175054, 0.24903093175608737, 0.24911356195963247, 0.2520557270657358, 0.25369690081713986, 0.25481386230498626, 0.25484760691225083, 0.25489971040259946, 0.2549029598484345, 0.2549347319531261, 0.25504324812701096, 0.2556450285703065, 0.2559079738147653, 0.2560777216565359, 0.2561285217900811, 0.2585835720685879, 0.2600973208628568, 0.2785961995559536, 0.27940358389015746, 0.30742884071810916, 0.3290311407227464, 0.38061288108118735, 0.41758348958520536, 0.45617311993658366, 0.4798176769332744, 0.5389969010175103, 0.5888201920604306, 0.6329402130997547, 0.648544561641535, 0.6567016761792963, 0.6674054216978594, 0.7148173109830105, 0.7705407211604196, 0.8382836273103125, 0.8800071486454658, 0.8800071486454658, 0.8939396380321375, 0.8939396380321375, 0.8939396380321375, 0.8939396380321375, 0.8939396380321375, 0.8939396380321375, 0.8939396380321375, 0.8939396380321375, 0.8939396380321375, 0.8939396380321375, 0.8939396380321375, 0.8939396380321375, 0.8939396380321375, 0.8939396380321375, 0.8939396380321375, 0.9040912593631952, 0.9053623623835052, 0.9073689701740957, 0.9081861580623438, 0.9092912376262275, 0.9122017217654809, 0.9146224440772314, 0.9181745751820085, 0.9195516461906367, 0.9206154540108289, 0.922211227841214, 0.9241515554919417, 0.9249112064968366, 0.9259227939692443, 0.9273667202157133, 0.9298983915870127, 0.9329751805312382, 0.9357879960200418, 0.9384631490079505, 0.9554004075003346, 0.9605621534418646, 0.9662309318169922, 0.9715611374624815, 0.9772267852238559, 0.9796208204020667, 0.9823027849356158, 0.983803370705213, 0.9847190309482904, 0.985853715778659, 0.9862908860116733, 0.9872640851469252, 0.990658607945082, 0.9987965293737732, 0.9993434309636354, 0.9996829528121, 0.9999694962096548, 1.0], "yaxis": "y2"}],                        {"annotations": [{"align": "right", "bordercolor": "black", "borderwidth": 0, "font": {"color": "black", "family": "Courier New", "size": 13}, "showarrow": false, "text": "tsypruyan", "x": 0.94, "xref": "paper", "y": -0.08, "yref": "paper"}, {"align": "center", "font": {"color": "rgb(48,48,48)", "size": 16}, "opacity": 0.9, "showarrow": false, "text": "Bitcoin UTXO price histogram change, 14d", "valign": "top", "x": 0.001, "xref": "x domain", "y": 1.1125, "yref": "y domain"}, {"align": "center", "font": {"color": "black", "size": 32}, "opacity": 0.055, "showarrow": false, "text": "tsypruyan", "valign": "top", "x": 0.5, "xref": "x domain", "y": 0.5, "yref": "y domain"}], "autosize": true, "barmode": "stack", "height": 729, "legend": {"font": {"size": 13}, "orientation": "h", "tracegroupgap": 5, "traceorder": "reversed", "x": 0.94, "xanchor": "right", "y": 1.003, "yanchor": "bottom"}, "margin": {"b": 63, "l": 55, "pad": 0, "r": 0, "t": 70}, "plot_bgcolor": "rgba(0,0,0,0)", "template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "autotypenumbers": "strict", "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}, "title": {"text": ""}, "xaxis": {"anchor": "y", "domain": [0.0, 0.94], "linecolor": "black", "linewidth": 0.5, "mirror": true, "showline": true, "title": {"text": ""}}, "yaxis": {"anchor": "x", "domain": [0.0, 1.0], "linecolor": "black", "linewidth": 0.5, "mirror": true, "range": [0, 1200000], "showline": true, "title": {"text": ""}}, "yaxis2": {"anchor": "x", "linecolor": "black", "linewidth": 0.5, "mirror": true, "overlaying": "y", "range": [0, 1], "showline": true, "side": "right", "title": {"text": ""}, "visible": true}},                        {"responsive": true}                    )                };                            </script>        </div></div></div>
+<div class="row"><div class="col-lg-12 back2">
+        128:       
+        <a href="utxo_h_change1.html" class="btn btn-outline-secondary btn-sm" role="button">1d</a>
+        <a href="utxo_h_change7.html" class="btn btn-outline-secondary btn-sm" role="button">7d</a>
+        <a href="utxo_h_change14.html" class="btn btn-outline-secondary btn-sm" role="button"> 14d </a>
+        <a href="utxo_h_change.html" class="btn btn-outline-secondary btn-sm" role="button"> 30d </a>
+        <a href="utxo_h_change60.html" class="btn btn-outline-secondary btn-sm" role="button"> 60d </a>
+        &nbsp;500:       
+        <a href="utxo_h_change1_2.html" class="btn btn-outline-secondary btn-sm" role="button">1d</a>
+        <a href="utxo_h_change7_2.html" class="btn btn-outline-secondary btn-sm" role="button"> 7d </a>
+        <a href="utxo_h_change14_2.html" class="btn btn-outline-secondary btn-sm" role="button"> 14d </a>
+        <a href="utxo_h_change30_2.html" class="btn btn-outline-secondary btn-sm" role="button"> 30d </a>
+        <a href="utxo_h_change60_2.html" class="btn btn-outline-secondary btn-sm" role="button"> 60d </a>
+        </div></div>
+<div class="row"><div class="col-lg-12"><div class="descclass">Description:
+        UTXO price histogram change. Brick + pink bars is a histogram for the current UTXO set, 
+        brick + purple bars - a histogram for the UTXO set snapshot taken 14 days before.
+        Bar size is 500$. Not normalized to one. 
+        </div></div></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <p></p>
+            <p></p>
+            <p></p>
+            <div class="mb-1 text-center addrclass">
+                Bitcoin on-chain independent research project<br>
+                Contact: tsypruyan [at] gmail.com, <a href="https://twitter.com/tsypruyan" class="text-dark">@tsypruyan</a><br>
+                ﻿Address: bc1qm5nhtgy0al2f0lm7g53f9a6hkasn4ucc9sd7k9
+                </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
