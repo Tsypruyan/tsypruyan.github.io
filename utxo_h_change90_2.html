@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style type="text/css">
+	body{
+		margin:0;
+		padding: 0;
+		overflow-y:scroll;
+
+	}
+
+	.container{
+		width:98%;
+		margin: 1%;
+	}
+	.col-lg-12{
+	    border-bottom: 0.0px solid;
+	}
+    .back2{
+        padding-bottom: 3px;
+        padding-top: 0px;
+	    border-bottom: 0.5px solid;
+	    font-size: 13px;
+	}    
+	.col12marg0{
+	    margin: 0px;
+	}
+    .col-lg-9{
+	    border: 0.5px solid;
+	}
+    .col-lg-3{
+	    border: 0.5px solid;
+	}
+	.col-lg-10{
+	    border: 0.5px solid;
+	}
+	.back{
+		background-color: #F3F3F3;
+		border-bottom: 0.5px solid;
+	}
+    .back1{
+		background-color: #F3F3F3;
+	}
+    .col-lg-2{
+	    border: 0.5px solid;    
+	}
+    .colt{
+	    border: 0.0px solid;
+	}
+	.row{
+	    border: 0.0px solid;
+	}
+	ul.ul {
+        margin: 0px;
+        padding: 0px;
+        font-size: 14px;
+    }
+    li {
+        margin: 0px;
+        padding-bottom: 2px;
+        padding-left: 0px;
+        font-size: 14px;
+    }
+    .findclass{
+        margin: 1px;
+        left-padding: 4px;
+        font-size: 14px;
+    }
+    .descclass{
+        margin: 5px;
+        font-size: 14px;
+    }
+    .addrclass{
+        margin: 38px;
+        top-padding: 50px;
+        font-size: 14px;
+    }
+    .font14{
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .MathJax {
+    font-size: 12px;
+    }
+</style>
+    <title>Tsypruyan</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script src="plotly-latest.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    
+</script>
+    
+    <script>
+    $( document ).ready(function() {
+        console.log( "document loaded" );
+        var value = "";
+        if (localStorage.hasOwnProperty("text")) {
+            value = localStorage.getItem("text");
+        }      
+        $('#myInput').val(value);
+        $("#myList li").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+ 
+    $( window ).on( "load", function() {
+        console.log( "window loaded" );
+    });
+    </script>
+    
+    
+</head>
+<body>
+  
+    <script>
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            localStorage.setItem("text",value);
+            $("#myList li").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+    </script>
+  
+<div class="container-fluid">
+    <div class="row back1">
+        <div class="col-lg-3 colt">
+            <div class="px-1 py-1 font14">
+                <a href="index.html" class="text-dark">Tsypruyan</a> 
+            </div>
+        </div>
+        <div class="col-lg-9 colt">
+            <div class="py-1 float-right font14">Bitcoin on-chain data</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="col-lg-12">
+            <div class="py-1"><input class="form-control" id="myInput" type="text" placeholder="Find"></div>
+            <div class="row"><div class="col-lg-12">
+            <div class="font14">Sentiment</div>
+            <div class="col12marg0">
+            <ul id="myList" class="ul">
+                <li>
+                    <a href="sinpl.html" class="text-dark">Parametric long-term supply</a>
+                </li>
+                <li>
+                    <a href="sinpl_p.html" class="text-dark">Long-term supply in profit</a>
+                </li>
+                <li>
+                    <a href="sinpl_l.html" class="text-dark">Long-term supply in loss</a>
+                </li> 
+                <li>
+                    <a href="sinpl_pt.html" class="text-dark">Circulating supply in profit</a>
+                </li>
+                <li>
+                    <a href="sinpl_ptr.html" class="text-dark">Ratio of circ. supply in profit</a>
+                </li>
+                <li>
+                    <a href="sinpl_ltr.html" class="text-dark">Ratio of circ. supply in loss</a>
+                </li>      
+                <li>
+                    <a href="waves1.html" class="text-dark">HODL waves</a>
+                </li>
+                <li>
+                    <a href="waves2.html" class="text-dark">Realised cap HODL waves</a>
+                </li>               
+                <li>
+                    <a href="cap.html" class="text-dark">Realised and delta caps</a>
+                </li>               
+                <li>
+                    <a href="spentpar_liveliness.html" class="text-dark">Liveliness</a>
+                </li>
+                <li>
+                    <a href="spentpar_hodledorlost.html" class="text-dark">Hodled or lost coins</a>
+                </li>
+                <li>
+                    <a href="spentpar_hodledorlost_change.html" class="text-dark">Hodler net position change</a>
+                </li>
+                <li>
+                    <a href="spentpar_sopr.html" class="text-dark">SOPR</a>
+                </li>
+                <li>
+                    <a href="spentpar_sopr_lfamily.html" class="text-dark">Long-term SOPR family</a>
+                </li>
+                 <li>
+                    <a href="spentpar_sopr_sfamily.html" class="text-dark">Short-term SOPR family</a>
+                </li>
+                 <li>
+                    <a href="mvrv_sfamily.html" class="text-dark">Short-term MVRV family</a>
+                </li>
+                 <li>
+                    <a href="spent_outputs.html" class="text-dark">Spent tx outputs</a>
+                </li>
+                <li>
+                    <a href="spent_outputs_c.html" class="text-dark">Spent old outputs (count profile)</a>
+                </li>
+                <li>
+                    <a href="spent_outputs_v.html" class="text-dark">Spent old outputs (value profile)</a>
+                </li>
+                <li>
+                    <a href="utxo_cnt.html" class="text-dark">#UTXO</a>
+                </li>   
+            </ul>
+            </div>
+            </div></div>
+            <div class="row"><div class="col-lg-12">
+            <div class="font14">Addresses</div>
+            <ul id="myList" class="ul">            
+                <li>
+                    <a href="addr_lc.html" class="text-dark">Linear composition of realised cap</a>
+                </li>  
+                <li>
+                    <a href="addr_lcw.html" class="text-dark">Realised cap composition weights</a>
+                </li>  
+                <li>
+                    <a href="addr_lcb.html" class="text-dark">Supply distribution in A addr.</a>
+                </li>  
+                <li>
+                    <a href="addr_v.html" class="text-dark">Supply distribution in addr.</a>
+                </li> 
+                <li>
+                    <a href="addr_c.html" class="text-dark">Specific addresses count</a>
+                </li>   
+                <li>
+                    <a href="addr_c0.html" class="text-dark">Addresses count of non-zero balance</a>
+                </li> 
+                <li>
+                    <a href="addr_inp.html" class="text-dark">Ratio of addresses in profit</a>
+                </li> 
+                <li>
+                    <a href="addr_inl.html" class="text-dark">Addresses in loss</a>
+                </li> 
+                <li>
+                    <a href="addr_act.html" class="text-dark">Active addresses</a>
+                </li> 
+            </ul> 
+            </div></div>
+            <div class="row"><div class="col-lg-12">
+            <div class="font14">UTXO histograms</div>
+            <ul id="myList" class="ul"> 
+                <li>
+                    <a href="utxo_h.html" class="text-dark">UTXO price hist.</a>
+                </li>    
+                <li>
+                    <a href="utxo_h_change.html" class="text-dark">UTXO price hist. change</a>
+                </li>  
+            </ul>
+            </div></div>            
+            <div class="row"><div class="col-lg-12">
+            <div class="font14">Miners</div>
+            <ul id="myList" class="ul"> 
+                <li>
+                    <a href="miners_cb_s.html" class="text-dark">Miners unspent supply</a>
+                </li>
+                <li>
+                    <a href="miners_cb_sprofile.html" class="text-dark">Miners unspent supply histogram</a>
+                </li>
+                <li>
+                    <a href="miners_cb_c.html" class="text-dark">Miners unspent tx outputs count</a>
+                </li>  
+            </ul>
+            </div></div>
+            <div class="row"><div class="col-lg-12">
+            <div class="font14">Scripts</div>
+            <ul id="myList" class="ul"> 
+                <li>
+                    <a href="op_return.html" class="text-dark">OP_RETURN script count</a>
+                </li>
+                <li>
+                    <a href="op_return_value.html" class="text-dark">OP_RETURN script value</a>
+                </li>
+                <li>
+                    <a href="utxotype_cnt.html" class="text-dark">UTXO script types count</a>
+                </li>  
+                <li>
+                    <a href="utxotype_supply.html" class="text-dark">UTXO script types value</a>
+                </li> 
+            </ul>
+            </div></div>
+            </div>
+        </div>                                                                               
+        <div class="col-lg-10">
+        
+<div class="row"><div class="col-lg-12 back"><div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="plotly.min.js"></script>                <div id="696bf58c-3afa-4b6c-8e68-39f126c19104" class="plotly-graph-div" style="height:729px; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("696bf58c-3afa-4b6c-8e68-39f126c19104")) {                    Plotly.newPlot(                        "696bf58c-3afa-4b6c-8e68-39f126c19104",                        [{"legendgroup": "g1", "marker": {"color": "#72B7B2", "line": {"color": "black", "width": 0.8}}, "name": "heights=698091, 685723; August 29", "opacity": 0.55, "showlegend": true, "type": "bar", "width": 343, "x": [250, 750, 1250, 1750, 2250, 2750, 3250, 3750, 4250, 4750, 5250, 5750, 6250, 6750, 7250, 7750, 8250, 8750, 9250, 9750, 10250, 10750, 11250, 11750, 12250, 12750, 13250, 13750, 14250, 14750, 15250, 15750, 16250, 16750, 17250, 17750, 18250, 18750, 19250, 19750, 20250, 20750, 21250, 21750, 22250, 22750, 23250, 23750, 24250, 24750, 25250, 25750, 26250, 26750, 27250, 27750, 28250, 28750, 29250, 29750, 30250, 30750, 31250, 31750, 32250, 32750, 33250, 33750, 34250, 34750, 35250, 35750, 36250, 36750, 37250, 37750, 38250, 38750, 39250, 39750, 40250, 40750, 41250, 41750, 42250, 42750, 43250, 43750, 44250, 44750, 45250, 45750, 46250, 46750, 47250, 47750, 48250, 48750, 49250, 49750, 50250, 50750, 51250, 51750, 52250, 52750, 53250, 53750, 54250, 54750, 55250, 55750, 56250, 56750, 57250, 57750, 58250, 58750, 59250, 59750, 60250, 60750, 61250, 61750, 62250, 62750, 63250, 63750, 64250, 64750], "y": [3574148.85659038, 870800.23987157, 131539.51997384, 34438.09637443, 52926.60080241, 196047.01200792, 83482.16835791, 970816.84857104, 196641.3420116, 87431.28708712, 178581.90619831, 152760.79004249, 237378.43090667, 290967.69886278, 318039.55968042, 283544.56949393, 259559.7047519, 297270.28623754, 396737.68336533, 309458.81791026, 214430.44614866, 404929.8912191, 241030.36156628, 264978.16702964, 43644.19191817, 58948.27316473, 81480.40367226, 168276.44905192, 44515.6692844, 41621.49269326, 59165.34215538, 43893.73133326, 92130.61851528, 70917.90890322, 33851.98395696, 51264.71842387, 84925.26070887, 69243.4343489, 208134.19293682, 9536.69689092, 111.90431904, 4558.14888743, 2141.78099782, 2132.26996252, 5505.34417002, 75963.7510946, 122602.63439644, 75090.58531329, 2897.7095703, 3988.19311302, 782.29928012, 2861.5955095, 5429.60799238, 57651.00306075, 108910.63054133, 17999.79237811, 6574.00289943, 21640.21566774, 25294.33443673, 22839.61884882, 7798.27703637, 32031.5942185, 30679.68402209, 43760.02253352, 47257.73716693, 83211.5370454, 42810.58921181, 105979.34827711, 73385.94153466, 152005.69306953, 69502.48916527, 78859.34248808, 92359.334883, 148330.80284083, 106744.00783981, 140358.63074033, 206949.46035593, 115932.87787276, 142347.47048476, 78736.96224666, 158983.69190688, 60481.19995597, 41193.00777408, 26261.32905096, 611.32468178, 24930.56508206, 26995.26172352, 8324.84793424, 12833.46769593, 71052.01909294, 25294.93929084, 38546.71570826, 33511.68167459, 74993.91400628, 122705.41058951, 88966.0969489, 101028.70236893, 82349.44498367, 64533.3134228, 83807.34609056, 146097.8612412, 66513.21094103, 23207.90769642, 71531.87667594, 25848.68195463, 32805.00347728, 30999.42789032, 96881.1832105, 119809.73191915, 119236.55176856, 89970.59156026, 114207.37839471, 211682.61405245, 97215.28175041, 91682.10893198, 176538.65887588, 99127.91194814, 125843.08853508, 70573.10153331, 40259.71471629, 41415.83001848, 55119.02770017, 10461.0534438, 5020.51230224, 36465.52284135, 20094.99642282, 33878.14465905, 14398.86156141, 5770.4369019, 1311.51959437]}, {"legendgroup": "gout", "marker": {"color": "rgb(152,78,163)", "line": {"color": "black", "width": 0.8}}, "name": "", "opacity": 1.0, "showlegend": true, "type": "bar", "width": 343, "x": [250, 750, 1250, 1750, 2250, 2750, 3250, 3750, 4250, 4750, 5250, 5750, 6250, 6750, 7250, 7750, 8250, 8750, 9250, 9750, 10250, 10750, 11250, 11750, 12250, 12750, 13250, 13750, 14250, 14750, 15250, 15750, 16250, 16750, 17250, 17750, 18250, 18750, 19250, 19750, 20250, 20750, 21250, 21750, 22250, 22750, 23250, 23750, 24250, 24750, 25250, 25750, 26250, 26750, 27250, 27750, 28250, 28750, 29250, 30250, 35250, 36750, 37250, 37750, 38250, 39250, 40250, 41250, 42750, 43250, 50250, 50750, 51250, 51750, 52250, 52750, 53250, 53750, 54250, 54750, 55250, 55750, 56250, 56750, 57250, 57750, 58250, 58750, 59250, 59750, 60250, 60750, 61250, 61750, 62250, 62750, 63250, 63750, 64250, 64750], "y": [16324.560717300046, 20216.177334259963, 37966.37847955999, 558.0938147400011, 852.9157769800004, 55403.61501424, 5465.049251439996, 77385.29324467003, 19431.85130427999, 7889.204510490003, 8532.810582750011, 7241.978976479993, 12247.152257000009, 13957.749961449997, 40962.89695834002, 19566.556531670038, 22579.476331820013, 26639.11320908001, 31458.97912778001, 23261.70346331998, 42822.77733442999, 28264.376668170036, 109155.65563813, 48705.437099970004, 13198.486172689998, 5040.90901458, 7831.645897850001, 50635.937514839985, 1550.908749620001, 4232.075628470004, 6843.824296680003, 6806.660865699996, 12469.492772939993, 4553.6888251899945, 3063.270869449996, 8952.86109451, 9995.52359261, 10231.044864509997, 13687.404875649983, 820.9272114100004, 42.83140795999999, 798.7300854999994, 247.0848042900002, 272.13838319000024, 352.94352379999964, 6356.481939460005, 23898.657089440007, 13191.649477190003, 1222.0176844100001, 586.8101414800003, 36.314212039999916, 4336.44369946, 624.1153499500006, 7073.0655719299975, 5128.379796669993, 2240.6983020900007, 1569.55368756, 738.0750040799976, 4363.66589479, 452.7997847099996, 11243.51473586999, 52104.51348314999, 38685.35549365, 5513.5087970700115, 31028.390328070003, 15573.654104079993, 48337.10881611999, 6859.724776710005, 4009.093397460001, 6312.79777207, 2004.571138039988, 23981.82563084, 7746.066482860002, 11235.047385390004, 8704.646080410002, 20648.38958234, 8743.25297564, 17841.268128719996, 30000.711302130003, 50151.463411019984, 132639.49024669, 25355.102961840006, 66460.80648956, 114704.92529650002, 33736.04832421, 37002.6426505, 59756.07828773999, 24829.971428840014, 18252.230489630005, 15815.21579386, 13282.634093599998, 11965.338932130006, 25425.48621167, 1953.9264550899998, 6975.234431320001, 11239.74368037, 6843.440919000001, 4088.015827699999, 5146.516976600001, 1654.1669478899998]}, {"legendgroup": "gin", "marker": {"color": "rgb(247,129,191)", "line": {"color": "black", "width": 0.8}}, "name": "", "opacity": 1.0, "showlegend": true, "type": "bar", "width": 343, "x": [29750, 30750, 31250, 31750, 32250, 32750, 33250, 33750, 34250, 34750, 35750, 36250, 38750, 39750, 40750, 41750, 42250, 43750, 44250, 44750, 45250, 45750, 46250, 46750, 47250, 47750, 48250, 48750, 49250, 49750], "y": [25748.845814890003, 25389.77306941, 39117.177719479994, 262733.37570723, 56990.91975662001, 136021.92155247, 111348.28219045, 66305.66511729002, 65127.727833490004, 10787.119611069997, 15949.300196440003, 17983.082537359995, 19639.932696400007, 201517.66705090998, 18369.847811220003, 2402.81527291, 6317.80094467, 26448.820032249998, 34401.00363287, 26707.014354059997, 39960.842055999994, 123215.32066526999, 83358.33932865, 76787.76153655, 132736.34607553002, 30877.152584060008, 74076.69445234, 177267.183192, 76786.73252184999, 21114.376285200007]}, {"line": {"color": "rgb(247,129,191)", "width": 1.2}, "mode": "lines", "name": "cdf", "opacity": 0.8, "showlegend": true, "type": "scatter", "x": [0, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000, 10500, 11000, 11500, 12000, 12500, 13000, 13500, 14000, 14500, 15000, 15500, 16000, 16500, 17000, 17500, 18000, 18500, 19000, 19500, 20000, 20500, 21000, 21500, 22000, 22500, 23000, 23500, 24000, 24500, 25000, 25500, 26000, 26500, 27000, 27500, 28000, 28500, 29000, 29500, 30000, 30500, 31000, 31500, 32000, 32500, 33000, 33500, 34000, 34500, 35000, 35500, 36000, 36500, 37000, 37500, 38000, 38500, 39000, 39500, 40000, 40500, 41000, 41500, 42000, 42500, 43000, 43500, 44000, 44500, 45000, 45500, 46000, 46500, 47000, 47500, 48000, 48500, 49000, 49500, 50000, 50500, 51000, 51500, 52000, 52500, 53000, 53500, 54000, 54500, 55000, 55500, 56000, 56500, 57000, 57500, 58000, 58500, 59000, 59500, 60000, 60500, 61000, 61500, 62000, 62500, 63000, 63500, 64000, 64500, 65000], "xaxis": "x", "y": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.012839186776208097, 0.012839186776208097, 0.025499328554492533, 0.04500438732524719, 0.17601153643396897, 0.20442900681549558, 0.27225382774245827, 0.32777559374823373, 0.36083769000224514, 0.3933124295682678, 0.39869122768836585, 0.39869122768836585, 0.4066440518904312, 0.4156109841237825, 0.4156109841237825, 0.4156109841237825, 0.4156109841237825, 0.4156109841237825, 0.42540407411212744, 0.42540407411212744, 0.5258871398220536, 0.5258871398220536, 0.5350469254215456, 0.5350469254215456, 0.5362450449139454, 0.5393952997613537, 0.5393952997613537, 0.5393952997613537, 0.5525835157631753, 0.5697369413616158, 0.5830539011970876, 0.6029796376196048, 0.664418683357218, 0.7059837809033055, 0.744272581091956, 0.8104591104419282, 0.8258554327467894, 0.862792409366056, 0.9511834188371773, 0.9894717059266379, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "yaxis": "y2"}, {"line": {"color": "rgb(152,78,163)", "width": 1.2}, "mode": "lines", "name": "cdf", "opacity": 0.8, "showlegend": true, "type": "scatter", "x": [0, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000, 10500, 11000, 11500, 12000, 12500, 13000, 13500, 14000, 14500, 15000, 15500, 16000, 16500, 17000, 17500, 18000, 18500, 19000, 19500, 20000, 20500, 21000, 21500, 22000, 22500, 23000, 23500, 24000, 24500, 25000, 25500, 26000, 26500, 27000, 27500, 28000, 28500, 29000, 29500, 30000, 30500, 31000, 31500, 32000, 32500, 33000, 33500, 34000, 34500, 35000, 35500, 36000, 36500, 37000, 37500, 38000, 38500, 39000, 39500, 40000, 40500, 41000, 41500, 42000, 42500, 43000, 43500, 44000, 44500, 45000, 45500, 46000, 46500, 47000, 47500, 48000, 48500, 49000, 49500, 50000, 50500, 51000, 51500, 52000, 52500, 53000, 53500, 54000, 54500, 55000, 55500, 56000, 56500, 57000, 57500, 58000, 58500, 59000, 59500, 60000, 60500, 61000, 61500, 62000, 62500, 63000, 63500, 64000, 64500, 65000], "xaxis": "x", "y": [0.0, 0.008466266561766524, 0.0189508087884008, 0.03864098521392813, 0.038930424610423175, 0.03937276498623472, 0.06810626546560473, 0.07094055696888789, 0.11107422622441233, 0.12115200018596824, 0.12524351048770124, 0.12966880867278907, 0.133424653960841, 0.13977628923151747, 0.14701507708146497, 0.16825931212075493, 0.17840694709615967, 0.19011714676160607, 0.2039327609948354, 0.22024806084695206, 0.23231207810363244, 0.25452088691061275, 0.26917939755716935, 0.3257898566905314, 0.3510495387509929, 0.35789455615053395, 0.3605088794496484, 0.36457053862301264, 0.39083141951466654, 0.39163575398434347, 0.39383059897899086, 0.39737995272890114, 0.40091003272814363, 0.40737697854885735, 0.40973861903040115, 0.41132729686258157, 0.41597044223287405, 0.42115433468945823, 0.4264603735182115, 0.4335589546208117, 0.4339847050419081, 0.4340069183267422, 0.434421156843285, 0.434549300310831, 0.43469043710058447, 0.4348734811656277, 0.43817008873911617, 0.45056444377820937, 0.457405915521147, 0.4580396800455696, 0.45834401234369093, 0.45836284567124175, 0.4606118181811613, 0.4609354977587911, 0.464603740940205, 0.46726342845893704, 0.4684255025532119, 0.4692395066867384, 0.4696222881799333, 0.47188537870295294, 0.47188537870295294, 0.47212021036200047, 0.47212021036200047, 0.47212021036200047, 0.47212021036200047, 0.47212021036200047, 0.47212021036200047, 0.47212021036200047, 0.47212021036200047, 0.47212021036200047, 0.47212021036200047, 0.4779513377346437, 0.4779513377346437, 0.4779513377346437, 0.5049738535535236, 0.525036906845907, 0.5278963305066718, 0.5439883177919154, 0.5439883177919154, 0.5520651481133685, 0.5520651481133685, 0.5771338072429644, 0.5771338072429644, 0.580691407322116, 0.580691407322116, 0.580691407322116, 0.5827706089595569, 0.5860445609889202, 0.5860445609889202, 0.5860445609889202, 0.5860445609889202, 0.5860445609889202, 0.5860445609889202, 0.5860445609889202, 0.5860445609889202, 0.5860445609889202, 0.5860445609889202, 0.5860445609889202, 0.5860445609889202, 0.5860445609889202, 0.5860445609889202, 0.5870841744823899, 0.5995216625070033, 0.6035389383642066, 0.609365674387675, 0.6138800901394256, 0.6245887868880021, 0.6291232250018731, 0.6383760884873583, 0.6539350994356445, 0.6799447216884753, 0.7487344000444291, 0.7618840990834045, 0.7963520957048572, 0.8558405248469985, 0.8733367615175947, 0.8925271239165613, 0.9235179049997947, 0.936395259587035, 0.9458612569481919, 0.9540633663318019, 0.9609520246440377, 0.967157505493145, 0.9803437067918052, 0.9813570548688134, 0.9849745607269518, 0.9908037323495057, 0.9943528872715461, 0.9964730197703858, 0.9991421136187966, 1.0], "yaxis": "y2"}],                        {"annotations": [{"align": "right", "bordercolor": "black", "borderwidth": 0, "font": {"color": "black", "family": "Courier New", "size": 13}, "showarrow": false, "text": "tsypruyan", "x": 0.94, "xref": "paper", "y": -0.08, "yref": "paper"}, {"align": "center", "font": {"color": "rgb(48,48,48)", "size": 16}, "opacity": 0.9, "showarrow": false, "text": "Bitcoin UTXO price histogram change, 90d", "valign": "top", "x": 0.001, "xref": "x domain", "y": 1.1125, "yref": "y domain"}, {"align": "center", "font": {"color": "black", "size": 32}, "opacity": 0.055, "showarrow": false, "text": "tsypruyan", "valign": "top", "x": 0.5, "xref": "x domain", "y": 0.5, "yref": "y domain"}], "autosize": true, "barmode": "stack", "height": 729, "legend": {"font": {"size": 13}, "orientation": "h", "tracegroupgap": 5, "traceorder": "reversed", "x": 0.94, "xanchor": "right", "y": 1.003, "yanchor": "bottom"}, "margin": {"b": 63, "l": 55, "pad": 0, "r": 0, "t": 70}, "plot_bgcolor": "rgba(0,0,0,0)", "template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "autotypenumbers": "strict", "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}, "title": {"text": ""}, "xaxis": {"anchor": "y", "domain": [0.0, 0.94], "linecolor": "black", "linewidth": 0.5, "mirror": true, "showline": true, "title": {"text": ""}}, "yaxis": {"anchor": "x", "domain": [0.0, 1.0], "linecolor": "black", "linewidth": 0.5, "mirror": true, "range": [0, 1050000], "showline": true, "title": {"text": ""}}, "yaxis2": {"anchor": "x", "linecolor": "black", "linewidth": 0.5, "mirror": true, "overlaying": "y", "range": [0, 1], "showline": true, "side": "right", "title": {"text": ""}, "visible": true}},                        {"responsive": true}                    )                };                            </script>        </div></div></div>
+<div class="row"><div class="col-lg-12 back2">
+        128:       
+        <a href="utxo_h_change1.html" class="btn btn-outline-secondary btn-sm" role="button">1d</a>
+        <a href="utxo_h_change7.html" class="btn btn-outline-secondary btn-sm" role="button">7d</a>
+        <a href="utxo_h_change14.html" class="btn btn-outline-secondary btn-sm" role="button"> 14d </a>
+        <a href="utxo_h_change.html" class="btn btn-outline-secondary btn-sm" role="button"> 30d </a>
+        <a href="utxo_h_change60.html" class="btn btn-outline-secondary btn-sm" role="button"> 60d </a>
+        <a href="utxo_h_change90.html" class="btn btn-outline-secondary btn-sm" role="button"> 90d </a>
+        &nbsp;500:       
+        <a href="utxo_h_change1_2.html" class="btn btn-outline-secondary btn-sm" role="button">1d</a>
+        <a href="utxo_h_change7_2.html" class="btn btn-outline-secondary btn-sm" role="button"> 7d </a>
+        <a href="utxo_h_change14_2.html" class="btn btn-outline-secondary btn-sm" role="button"> 14d </a>
+        <a href="utxo_h_change30_2.html" class="btn btn-outline-secondary btn-sm" role="button"> 30d </a>
+        <a href="utxo_h_change60_2.html" class="btn btn-outline-secondary btn-sm" role="button"> 60d </a>
+        <a href="utxo_h_change90_2.html" class="btn btn-outline-secondary btn-sm" role="button"> 90d </a>
+        </div></div>
+<div class="row"><div class="col-lg-12"><div class="descclass">Description:
+        UTXO price histogram change. Turquoise + pink bars is a histogram for the current UTXO set, 
+        turquoise + purple bars - a histogram for the UTXO set snapshot taken 90 days before.
+        Bar size is 500$. Not normalized to one. 
+        </div></div></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <p></p>
+            <p></p>
+            <p></p>
+            <div class="mb-1 text-center addrclass">
+                Bitcoin on-chain independent research project<br>
+                Contact: tsypruyan [at] gmail.com, <a href="https://twitter.com/tsypruyan" class="text-dark">@tsypruyan</a><br>
+                ﻿Address: bc1qm5nhtgy0al2f0lm7g53f9a6hkasn4ucc9sd7k9
+                </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
